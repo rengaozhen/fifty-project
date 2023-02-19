@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+*{
+     padding: 0;
+     margin: 0;
+}
+body{
+    font-family: 'Microsoft YaHei';
+    color: #333;
+    font-size: 16px;
+    background-color: #222;
+    overflow-x: hidden;
+        width: 100vw;
+    min-height: 100vh;
+}
+.container{
+        background-color: #fafafa;
+        padding: 50px;
+        transform-origin:top left ;
+        transition: transform 0.5s linear;
+}
+.active{
+    transform: rotate(-20deg);
+}
+.container.active .circle{
+    transform: rotate(-70deg);
+}
+.container .circle .close{
+    top: 60%;
+        transform: rotate(90deg);
+        transform-origin: top left;
+}
+.container .circle .open {
+    left: 60%;
+}
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    
+}
+.circle{
+        background-color: #ff7979;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            position: relative;
+            transition: transform 0.5s linear;
+}
+.content{
+    max-width: 1000px;
+    margin: 50px auto;
+}
+small{
+    color: #555;
+    font-style: italic;
+}
+p{
+    margin: 16px 0;
+}
+h3{
+    margin: 18px 0;
+}
+.content img{
+    width: 100%;
+}
+.circle .open{
+        cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100px;
+            background: transparent;
+            border: 0;
+            font-size: 26px;
+            color: #fff;
+}
+.circle .close{
+        cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100px;
+            background: transparent;
+            border: 0;
+            font-size: 26px;
+            color: #fff;
+}
+nav{
+        position: fixed;
+            bottom: 40px;
+            left: 0;
+            z-index: 100;
+            font-weight: 900;
+}
+nav ul {
+    font-size: 16px;
+    list-style: none;
+    padding-left: 30px;
+}
+nav ul li{
+    text-transform: uppercase;
+        color: #fff;
+        margin: 40px 0;
+        transform: translateX(-100%);
+}
+nav ul li + li{
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+nav ul li + li + li{
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+.container.active + nav li {
+    transform: translateX(0);
+    transition: transform 0.3s linear;
+    transition-delay: 0.3s;
+}

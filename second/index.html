@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="circle active">1</div>
+            <div class="circle">2</div>
+            <div class="circle">3</div>
+            <div class="circle">4</div>
+        </div>
+        <button class="btn" disabled id="prev">Prev</button>
+        <button class="btn" id="next">Next</button>
+    </div>
+    <script>
+        let progress = document.getElementById('progress');
+        let prex = document.getElementById('prex');
+        let next = document.getElementById('next');
+        let circles = document.querySelectorAll('.circle');
+        let currentIndex = 1;
+        prev.onclick = ()=>{
+            currentIndex--;
+            if(currentIndex < 1){
+                currentIndex = 1
+            }
+            update()
+        }
+        next.onclick = ()=>{
+            currentIndex++;
+            if(currentIndex > circles.length){
+                currentIndex = circles.length
+            }
+            update()
+        }
+        function update(){
+            circles.forEach((circle,index)=>{
+                if(index <= currentIndex - 1){
+                    circle.classList.add('active')
+                }else{
+                    circle.classList.remove('active')
+                }
+            })
+            let actives = document.querySelectorAll('.active');
+            let width = (actives.length -1 ) / (circles.length - 1) *100 +'%';
+            progress.style.width = width
+            if(currentIndex === 1){
+                prev.disabled = true;
+            }else if(currentIndex === circles.length){
+                next.disabled = true;
+            }else{
+                next.disabled = false;
+                prev.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

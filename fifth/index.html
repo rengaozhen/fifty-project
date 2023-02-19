@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="loading"></div>
+    <script>
+        let bg = document.querySelector('.bg');
+        let loading = document.querySelector('.loading');
+        let timer = setInterval(load , 30);
+        let num = 0;
+        function load(){
+            num++;
+            if(num > 99){
+                clearInterval(timer)
+            }
+            loading.innerHTML = num +'%';
+            loading.style.opacity =  - num / 100 + 1 ;
+            bg.style.filter = `blur(${- num * 50 / 100 + 50 }px)`
+        }
+    </script>
+</body>
+</html>
